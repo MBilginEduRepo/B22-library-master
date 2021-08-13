@@ -54,5 +54,26 @@ public class BooksPage extends PageBase {
     }
 
 
+    //============================================
+
+
+    @FindBy(id = "book_group_id")
+    public WebElement bookCategoryDropDown;
+
+
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement saveChangesButton;
+
+    public WebElement addBook(String info){
+        String xpath = "//input[@placeholder='"+info+"']";
+        return Driver.get().findElement(By.xpath(xpath));
+    }
+
+
+    public Select bookCategory(){
+        return new Select(bookCategoryDropDown);
+    }
+
+
 
 }
